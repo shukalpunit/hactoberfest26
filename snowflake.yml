@@ -1,0 +1,14 @@
+definition_version: 2
+entities:
+  clauseshield:
+    type: streamlit
+    identifier:
+      name: CLAUSESHIELD
+      database: CLAUSESHIELD_DB
+      schema: APP
+    query_warehouse: COMPUTE_WH
+    runtime_name: SYSTEM$ST_CONTAINER_RUNTIME_PY3_11
+    compute_pool: SYSTEM_COMPUTE_POOL_CPU
+    main_file: app.py
+    artifacts:
+      - app.py
