@@ -1,0 +1,105 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1a1a2e;background:#fff}
+body{min-height:100vh;display:flex}
+
+/* Layout */
+.sidebar{width:260px;border-right:1px solid #e0e0e0;padding:1.5rem;background:#f7f8fa;overflow-y:auto;display:none}
+.sidebar.visible{display:block}
+.main{flex:1;padding:2rem;max-width:1000px;margin:0 auto;overflow-y:auto}
+
+/* Header */
+.app-header{border-bottom:1px solid #e0e0e0;padding-bottom:1rem;margin-bottom:1.5rem}
+.app-header h1{font-size:2rem;font-weight:700;color:#0f172a}
+.app-header p{font-size:.9rem;color:#64748b;margin-top:.25rem}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;border-bottom:2px solid #e2e8f0;margin-bottom:1.5rem}
+.tab{padding:.6rem 1.2rem;cursor:pointer;font-size:.9rem;font-weight:500;color:#64748b;border-bottom:3px solid transparent;transition:all .2s}
+.tab:hover{color:#334155}
+.tab.active{color:#0f172a;border-bottom-color:#2563eb}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Score ring */
+.score-container{background:#f8fafc;border-radius:16px;padding:2rem;text-align:center;margin-bottom:1.5rem;border:1px solid #e2e8f0}
+.score-ring{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .5rem}
+.score-number{font-size:4rem;font-weight:800;line-height:1}
+.score-label{font-size:.85rem;color:#64748b;margin-top:.25rem}
+.score-verdict{font-size:1rem;font-weight:500;margin-top:.25rem}
+
+/* Risk cards */
+.risk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:1.5rem}
+@media(max-width:900px){.risk-grid{grid-template-columns:repeat(2,1fr)}}
+.risk-card{background:#fff;border-radius:12px;padding:1.2rem;border:1px solid #e2e8f0}
+.severity-badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.7rem;color:#fff;text-transform:uppercase;font-weight:600;letter-spacing:.3px}
+.risk-card .category{font-size:1rem;font-weight:600;margin-top:8px;color:#0f172a}
+.risk-card .reason{font-size:.85rem;color:#475569;margin-top:4px;line-height:1.4}
+.clause-toggle{font-size:.75rem;color:#2563eb;cursor:pointer;margin-top:8px;display:inline-block;font-weight:500}
+.clause-toggle:hover{text-decoration:underline}
+.clause-text{font-size:.8rem;color:#475569;margin-top:4px;padding:8px;background:#f8fafc;border-radius:8px;display:none;line-height:1.5}
+.clause-text.open{display:block}
+
+/* Sentiment */
+.sentiment-row{display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:#64748b;margin-top:6px}
+.sentiment-bar{height:4px;border-radius:2px;background:#e2e8f0;margin-top:4px}
+.sentiment-fill{height:4px;border-radius:2px}
+
+/* Summary */
+.summary-section{margin-bottom:1.5rem}
+.summary-toggle{font-size:.9rem;font-weight:500;cursor:pointer;padding:.6rem 0;color:#0f172a}
+.summary-toggle::before{content:">";display:inline-block;margin-right:8px;transition:transform .2s}
+.summary-toggle.open::before{transform:rotate(90deg)}
+.summary-text{font-size:.9rem;line-height:1.6;color:#334155;padding:.5rem 0;display:none}
+.summary-text.open{display:block}
+
+/* Sidebar metadata */
+.sidebar h3{font-size:1rem;font-weight:600;margin-bottom:1rem;color:#0f172a}
+.sidebar-field{padding:10px 0;border-bottom:1px solid #f0f0f0}
+.sidebar-field .label{font-size:.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.sidebar-field .value{font-size:.9rem;color:#1e293b}
+
+/* Chat */
+.chat-messages{max-height:400px;overflow-y:auto;margin-bottom:1rem}
+.chat-user{background:#eff6ff;border-radius:12px;padding:12px 16px;margin-bottom:8px}
+.chat-assistant{padding:12px 16px;margin-bottom:8px;border-left:3px solid #e2e8f0}
+.chat-role{font-size:.75rem;color:#64748b;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.chat-form{display:flex;gap:8px}
+.chat-form input{flex:1;padding:10px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:.9rem;color:#1e293b}
+.chat-form input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+
+/* Buttons */
+.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-primary:hover{background:#1d4ed8}
+.btn-primary:disabled{background:#cbd5e1;color:#94a3b8;cursor:not-allowed}
+.btn-sm{padding:6px 14px;font-size:.8rem}
+.btn-outline{background:transparent;border:1px solid #cbd5e1;color:#475569}
+.btn-outline:hover{border-color:#2563eb;color:#2563eb}
+.btn-danger-sm{background:transparent;border:none;color:#94a3b8;cursor:pointer;font-size:.8rem;padding:2px 6px;border-radius:4px}
+.btn-danger-sm:hover{color:#ef4444;background:#fef2f2}
+
+/* Info/Warning/Select */
+.info-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 16px;font-size:.85rem;color:#1e40af;margin-bottom:1rem}
+.info-box code{background:#dbeafe;padding:2px 6px;border-radius:4px;font-size:.8rem}
+.warning-box{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;font-size:.85rem;color:#92400e;margin-bottom:1rem}
+.error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 16px;font-size:.85rem;color:#991b1b;margin-bottom:1rem}
+select{padding:10px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:.9rem;width:100%;margin-bottom:.5rem;color:#1e293b;background:#fff}
+
+/* PDF queue */
+.pdf-picker{margin-bottom:1rem}
+.pdf-picker-row{display:flex;gap:8px;align-items:stretch;margin-bottom:.5rem}
+.pdf-picker-row select{margin-bottom:0;flex:1}
+.pdf-queue-item{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 12px;margin-bottom:4px;font-size:.85rem;color:#334155}
+.pdf-queue-item .filename{font-weight:500}
+.pdf-queue-empty{font-size:.8rem;color:#94a3b8;padding:8px 0}
+
+/* Spinner */
+.status-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1rem}
+.status-step{font-size:.85rem;color:#475569;padding:4px 0}
+.status-step.active{color:#2563eb;font-weight:500}
+.status-step.done{color:#059669}
+.status-step.done::before{content:"done ";font-weight:700}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin .6s linear infinite;margin-right:6px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.hidden{display:none!important}

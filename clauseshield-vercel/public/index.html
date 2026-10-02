@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClauseShield</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <h3>Contract Details</h3>
+    <div id="metadata-fields"></div>
+  </aside>
+  <div class="main">
+    <div class="app-header">
+      <h1>ClauseShield</h1>
+      <p>Contract risk analysis powered by Snowflake Cortex</p>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="risk">Risk Analysis</div>
+      <div class="tab" data-tab="chat">Ask about this contract</div>
+    </div>
+
+    <div class="tab-content active" id="tab-risk">
+      <div class="info-box">
+        Select a contract PDF from the Snowflake stage. Upload PDFs first via Snowsight or SQL:<br>
+        <code>PUT file:///path/to/contract.pdf @CLAUSESHIELD_DB.APP.CONTRACTS/ AUTO_COMPRESS=FALSE;</code>
+      </div>
+      <div class="pdf-picker">
+        <div class="pdf-picker-row">
+          <select id="file-select"><option value="">Loading files...</option></select>
+          <button class="btn btn-outline btn-sm" id="add-pdf-btn" title="Add to queue">+ Add</button>
+        </div>
+        <div id="pdf-queue"></div>
+        <button class="btn btn-primary" id="analyze-btn" disabled>Analyze Contract</button>
+      </div>
+      <div id="status-box" class="status-box hidden"></div>
+      <div id="score-section"></div>
+      <div id="summary-section"></div>
+      <div id="risk-cards"></div>
+    </div>
+
+    <div class="tab-content" id="tab-chat">
+      <div id="chat-placeholder" class="info-box">Analyze a contract in the Risk Analysis tab first.</div>
+      <div id="chat-area" class="hidden">
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-form">
+          <input type="text" id="chat-input" placeholder="Ask about this contract..." style="margin-bottom:0">
+          <button class="btn btn-primary" id="chat-send">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
